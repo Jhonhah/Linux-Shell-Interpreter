@@ -153,15 +153,7 @@ int main(int argc, char *argv[]) {
         // child process 
         if ((pid = fork()) == 0) {
             execvp(tokens[0], tokens);
-            perror("execvp failed in child process");
-            // free(prompt);
-            // free(line);
-            // for (int i = 0; i < num_tokens; i++) {
-            //     free(tokens[i]); 
-            //     tokens[i] = NULL; 
-            // }
-            // free(tokens); // Free the tokens array
-            // tokens = NULL; // Reset tokens to NULL to avoid dangling pointer    
+            perror("execvp failed in child process");  
             exit(1); // Exit child process if execvp fails
         }
         waitpid(pid, NULL, 0);
